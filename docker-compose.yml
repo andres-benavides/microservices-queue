@@ -1,0 +1,82 @@
+version: '3'
+services:
+  # DB Order Service
+  db_order:
+    image: postgres:16
+    container_name: db_order
+    volumes:
+      - pgdata_order:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: order_db
+      POSTGRES_USER: user_db
+      POSTGRES_PASSWORD: test_123
+    ports:
+      - "5441:5432"
+
+  # DB Customer Service
+  db_customer:
+    image: postgres:16
+    container_name: db_customer
+    volumes:
+      - pgdata_customer:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: customer_db
+      POSTGRES_USER: user_db
+      POSTGRES_PASSWORD: test_123
+    ports:
+      - "5442:5432"
+
+  # Order Service
+  order_service:
+    build: ./order_service
+    container_name: order_service
+    volumes:
+      - ./order_service:/app
+      - ./order_service/config/master.key:/app/config/master.key
+    environment:
+      DB_HOSTNAME: db_order
+      DB_NAME: order_db
+      DB_USERNAME: user_db
+      DB_PASSWORD: test_123
+      DB_PORT: 5432
+      RABBITMQ_HOST: rabbitmq
+    ports:
+      - "3005:3000"
+    depends_on:
+      - db_order
+      - rabbitmq
+
+  # Customer Service
+  customer_service:
+    build: ./customer_service
+    container_name: customer_service
+    volumes:
+      - ./customer_service:/app
+      - ./customer_service/config/master.key:/app/config/master.key
+    environment:
+      DB_HOSTNAME: db_customer
+      DB_NAME: customer_db
+      DB_USERNAME: user_db
+      DB_PASSWORD: test_123
+      DB_PORT: 5432
+      RABBITMQ_HOST: rabbitmq
+    ports:
+      - "3006:3000"
+    depends_on:
+      - db_customer
+      - rabbitmq
+
+  # RabbitMQ web
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"     # API
+      - "15672:15672"   # UI web
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+volumes:
+  pgdata_order:
+  pgdata_customer:
