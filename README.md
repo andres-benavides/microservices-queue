@@ -106,7 +106,7 @@ Este script:
 
 ## 🧠 Arquitectura del Sistema
 
-![Arquitectura del Proyecto](URL_DE_LA_IMAGEN_DEL_DIAGRAMA)
+![Arquitectura del Proyecto](https://raw.githubusercontent.com/andres-benavides/microservices-queue/refs/heads/main/monokera.png)
 
 ---
 
