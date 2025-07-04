@@ -14,26 +14,31 @@ Customer.create!([
     id: "11111111-1111-1111-1111-111111111111",
     name: "Juan Pérez",
     address: "Calle Falsa 123, Bogotá",
-    orders_count: 3
+    orders_count: 0,
+    age: 32
   },
   {
     name: "Ana Gómez",
     address: "Carrera 7 #45-67, Medellín",
-    orders_count: 5
+    orders_count: 0,
+    age: 23
   },
   {
     name: "Carlos Rodríguez",
     address: "Av. Siempre Viva 742, Cali",
-    orders_count: 1
+    orders_count: 0,
+    age: 18
   },
   {
     name: "Laura Méndez",
     address: "Transversal 23 #10-12, Barranquilla",
-    orders_count: 0
+    orders_count: 0,
+    age: 40
   },
   {
     name: "Daniela Torres",
     address: "Diagonal 80 #22-35, Cartagena",
-    orders_count: 2
+    orders_count: 0,
+    age: 32
   }
 ])

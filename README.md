@@ -60,12 +60,13 @@ Esto levantará:
 
 ## 📫 Endpoints y Pruebas Manuales
 
-En el repositorio encontrarás archivos de **Postman** con las peticiones necesarias para probar:
+En el repositorio encontrarás archivos de **Postman** (Monokera.postman_collection.json) con las peticiones necesarias para probar:
 
 - Crear un cliente
+- Obtener un cliente
+- Obtener todos los clientes
 - Crear una orden
 - Obtener órdenes por cliente
-- Simular eventos
 
 ---
 
