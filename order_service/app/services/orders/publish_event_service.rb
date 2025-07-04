@@ -26,6 +26,7 @@ module Orders
       connection.close
     rescue => e
       Rails.logger.error("Error published messagge in RabbitMQ: #{e.message}")
+      raise e
     end
   end
 end

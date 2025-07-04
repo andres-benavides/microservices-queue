@@ -11,6 +11,7 @@
 # db/seeds.rb
 Customer.create!([
   {
+    id: "11111111-1111-1111-1111-111111111111",
     name: "Juan Pérez",
     address: "Calle Falsa 123, Bogotá",
     orders_count: 3

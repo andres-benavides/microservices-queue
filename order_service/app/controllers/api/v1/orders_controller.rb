@@ -1,7 +1,6 @@
 module Api
   module V1
     class OrdersController < ApplicationController
-      
       def index
         orders = Orders::FetchService.call(params[:customer_id])
         render json: orders

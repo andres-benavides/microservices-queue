@@ -35,3 +35,22 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# === Byebug / Pry ===
+.byebug_history
+.pry_history
+
+# === Order Service specific ===
+order_service/tmp/
+order_service/log/
+order_service/coverage/
+order_service/.env
+order_service/.DS_Store
+
+
+# === Customer Service specific ===
+customer_service/tmp/
+customer_service/log/
+customer_service/coverage/
+customer_service/.env
+customer_service/.DS_Store

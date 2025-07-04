@@ -4,6 +4,7 @@ module Customers
 
     def self.get_customer(customer_id)
       response = Faraday.get("#{BASE_URL}/api/v1/customers/#{customer_id}")
+
       return nil unless response.success?
 
       JSON.parse(response.body)
