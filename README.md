@@ -74,7 +74,7 @@ En el repositorio encontrarás archivos de **Postman** (Monokera.postman_collect
 
 ### 🧪 Pruebas Unitarias (order_service)
 
-Ejecuta:
+Con el proyecto ejecutándose, ejecuta:
 El archivo debe tener permisos de ejecucion
 
 ```bash
@@ -84,13 +84,24 @@ sudo chmod +x run_test_order.sh
 
 Este script:
 
-1. Usa `docker-compose.test.yml`
-2. Crea y migra las bases de datos de prueba
-3. Ejecuta los tests de `order_service` con RSpec
+1. Ejecuta los tests de `order_service` con RSpec
 
 ### 🔁 Pruebas de Integración
 
-Ejecuta:
+Se debe detener el proyecto, se puede usar este script
+
+```bash
+sudo chmod +x run_integration_test
+./stop_project.sh
+```
+
+o directamente
+
+```bash
+docker compose down
+```
+
+Luego ejecutar:
 El archivo debe tener permisos de ejecucion
 
 ```bash

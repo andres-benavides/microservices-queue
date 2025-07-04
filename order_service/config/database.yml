@@ -13,7 +13,8 @@ development:
 
 test:
   <<: *default
-  database: <%= ENV.fetch("DB_NAME", "app_test") %>
+  host: <%= ENV.fetch("DB_HOSTNAME_TEST", "localhost") %>
+  database: <%= ENV.fetch("DB_NAME_TEST", "app_test") %>
 
 production:
   <<: *default

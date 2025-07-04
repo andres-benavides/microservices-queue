@@ -12,6 +12,18 @@ services:
       POSTGRES_PASSWORD: test_123
     ports:
       - "5441:5432"
+  # DB Order Service TEST
+  db_order_test:
+    image: postgres:16
+    container_name: db_order_test
+    volumes:
+      - pgdata_order_test:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: order_db_test
+      POSTGRES_USER: user_db
+      POSTGRES_PASSWORD: test_123
+    ports:
+      - "5443:5432"
 
   # DB Customer Service
   db_customer:
@@ -36,6 +48,8 @@ services:
     environment:
       DB_HOSTNAME: db_order
       DB_NAME: order_db
+      DB_HOSTNAME_TEST: db_order_test
+      DB_NAME_TEST: order_db_test
       DB_USERNAME: user_db
       DB_PASSWORD: test_123
       DB_PORT: 5432
@@ -80,3 +94,4 @@ services:
 volumes:
   pgdata_order:
   pgdata_customer:
+  pgdata_order_test:
